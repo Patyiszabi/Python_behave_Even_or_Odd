@@ -1,21 +1,19 @@
 from behave import given, when, then
-# TODO: Importáld a number_checker modult a src mappából
+from src import number_checker
 
 
-# TODO: Implementáld a Given step-et
-# @given('the number is {number}')
-# def step_given_number(context, number):
-#     pass
+
+@given('the number is {number}')
+def step_given_number(context, number):
+    context.number = int(number)
 
 
-# TODO: Implementáld a When step-et
-# Használd a check_number függvényt a src/number_checker.py fájlból!
-# @when('I check the number')
-# def step_when_check_number(context):
-#     pass
+
+@when('I check the number')
+def step_when_check_number(context):
+    context.result = number_checker.check_number(context.number)
 
 
-# TODO: Implementáld a Then step-et
-# @then('the result should be "{expected}"')
-# def step_then_result(context, expected):
-#     pass
+@then('the result should be "{expected}"')
+def step_then_result(context, expected):
+    assert context.result == expected

@@ -15,8 +15,16 @@ def check_number(number):
     Returns:
         str: "even" ha páros, "odd" ha páratlan
     """
-    # TODO: Implementáld a logikát!
-    # Használd a modulo operátort (%)
-    # Ha number % 2 == 0, akkor páros → "even"
-    # Egyébként páratlan → "odd"
-    pass
+    if number == 0:
+        return "zero"
+    elif number % 2 == 0:
+        return "even"
+    elif number < 0:
+        if number % 2 == 0:
+            return "negative even"
+        else:
+            return "negative odd"
+    else:
+        return "odd"
+
+
